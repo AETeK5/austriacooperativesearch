@@ -1,0 +1,31 @@
+{% extends "acs/base.html" %}
+
+{% load static %}
+
+{% block content %}
+<div class="search_content">
+    <form action="{% url 'acs:results' %}" method="get">
+        {% csrf_token %}
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="availability" id="availability1" value="1"
+                   checked>
+            <label class="form-check-label" for="availability1">
+                Sofort Verfügbar
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="availability" id="availability2" value="2">
+            <label class="form-check-label" for="availability2">
+                In Plannung
+            </label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="radio" name="availability" id="availability3" value="3">
+            <label class="form-check-label" for="availability3">
+                In Bau
+            </label>
+        </div>
+        <button type="submit" class="btn btn-primary">Suche</button>
+    </form>
+</div>
+{% endblock %}
